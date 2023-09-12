@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import Todo from "./Todo";
 import NewTodoForm from "./NewTodoForm";
-import './TodoList.css';
+import "./TodoList.css";
 
 class TodoList extends Component {
   constructor(props) {
     super(props);
     this.state = {
       tasks: [],
+      empty: true,
     };
     this.addTodo = this.addTodo.bind(this);
     this.removeTodo = this.removeTodo.bind(this);
@@ -17,6 +18,7 @@ class TodoList extends Component {
   addTodo(input) {
     this.setState((st) => ({
       tasks: [...st.tasks, input],
+      empty: false,
     }));
   }
   removeTodo(id) {
@@ -25,6 +27,11 @@ class TodoList extends Component {
         return item.id !== id.id;
       }),
     }));
+    if (this.state.tasks.length <= 1) {
+      this.setState(() => ({
+        empty: true,
+      }));
+    }
   }
   editTodo(id, updatedTask) {
     const updatedTodos = this.state.tasks.map((todo) => {
@@ -43,8 +50,8 @@ class TodoList extends Component {
       return todo;
     });
     this.setState(() => ({
-      tasks: updatedTodos
-    }))
+      tasks: updatedTodos,
+    }));
   }
   render() {
     let todo = this.state.tasks.map((item) => {
@@ -61,9 +68,13 @@ class TodoList extends Component {
       );
     });
     return (
-      <div className="TodoList" >
+      <div className="TodoList">
         <h1>To-do List!</h1>
-        <div>{todo}</div>
+        <div
+          className={this.state.empty ? "TodoList-wrapper" : "TodoList-list"}
+        >
+          {this.state.empty ? "Your to-do list is empty." : todo}
+        </div>
         <NewTodoForm addTodo={this.addTodo} editTodo={this.editTodo} />
       </div>
     );

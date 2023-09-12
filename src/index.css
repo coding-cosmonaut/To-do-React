@@ -6,7 +6,7 @@
 
 html,
 body {
-  background: linear-gradient(90deg, #69b7eb, #b2dbd3, #f4d6db);
+  background: #f1f1f1;
   font-family: 'Quicksand', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

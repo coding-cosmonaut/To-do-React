@@ -1,13 +1,15 @@
-import React, { Component } from "react";import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { Component } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 import { v4 as uuidv4 } from "uuid";
-import './NewTodoForm.css';
+import "./NewTodoForm.css";
 
 class NewTodoForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
       text: "",
+      value: false,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -19,10 +21,14 @@ class NewTodoForm extends Component {
   }
   handleSubmit(evt) {
     evt.preventDefault();
-    let newSt = {...this.state, id: uuidv4(), completed: false}
+    if (this.state.text.length <= 0) {
+      return;
+    }
+    let newSt = { ...this.state, id: uuidv4(), completed: false };
     this.props.addTodo(newSt);
     this.setState({
       text: "",
+      value: false,
     });
   }
   render() {

@@ -3,12 +3,11 @@
     padding: 2rem 3rem 3rem;
     max-width: 500px;
     background: #ff6666;
-    height: 70vh;
     color: #fff;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* box-shadow: -20px -20px 0px 0px rgba(100, 100, 100, 0.1); */
+    box-shadow: -20px -20px 0px 0px rgba(100, 100, 100, 0.1);
 }
 
 .TodoList h1 {
@@ -16,4 +15,15 @@
     font-size: 2.6rem;
     letter-spacing: 0.05em;
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.TodoList-wrapper {
+    padding: 20px 20px;
+    margin: 10px 10px;
+    font-style: italic;
+    font-size: 1.2rem;
+}
+
+.TodoList-list {
+    margin: 1.5rem 0;
 }
