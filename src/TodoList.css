@@ -1,5 +1,19 @@
-.TodoList-container {
-    position: absolute;
-    z-index: 10;
-    top: 60px;
+.TodoList {
+    margin: 4rem auto;
+    padding: 2rem 3rem 3rem;
+    max-width: 500px;
+    background: #ff6666;
+    height: 70vh;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* box-shadow: -20px -20px 0px 0px rgba(100, 100, 100, 0.1); */
+}
+
+.TodoList h1 {
+    font-weight: normal;
+    font-size: 2.6rem;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }

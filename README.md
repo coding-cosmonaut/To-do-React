@@ -1,3 +1,11 @@
+To-do application; create and manage tasks; 4 main features: 
+Create to-dos 
+Remove to-dos 
+Edit to-dos 
+Complete to-dos
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

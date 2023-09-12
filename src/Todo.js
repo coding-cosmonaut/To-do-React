@@ -42,35 +42,43 @@ class Todo extends Component {
     let results;
     if (this.state.isEditing) {
       results = (
-        <form onSubmit={this.handleSubmit}>
-          <label htmlFor="updatedTask"></label>
-          <input
-            onChange={this.handleChange}
-            value={this.state.updatedTask}
-            name="updatedTask"
-            id="updatedTask"
-            type="text"
-          />
-          <button>Save</button>
-        </form>
+        <div className="Todo">
+          <form className="Todo-edit-form" onSubmit={this.handleSubmit}>
+            <label htmlFor="updatedTask"></label>
+            <input
+              onChange={this.handleChange}
+              value={this.state.updatedTask}
+              name="updatedTask"
+              id="updatedTask"
+              type="text"
+            />
+            <button>SAVE</button>
+          </form>
+        </div>
       );
     } else {
       results = (
-        <div className="Todo-container">
+        <div className="Todo">
           <div
-            className={this.props.completedProp ? "Todo-Completion" : ""}
+            className={
+              this.props.completedProp
+                ? "Todo-task Todo-Completion"
+                : "Todo-task"
+            }
             onClick={this.handleCompletion}
           >
-            <div>
-              <div className="Todo">{this.props.text}</div>
+            <div className="Todo-task-parent">
+              <div className="Todo-task">{this.props.text}</div>
             </div>
           </div>
-          <button onClick={this.handleEdit}>
-            <FontAwesomeIcon icon={faPencil} />
-          </button>
-          <button onClick={this.handleClick}>
-            <FontAwesomeIcon icon={faTrash} />
-          </button>
+          <div className="Todo-buttons">
+            <button onClick={this.handleEdit}>
+              <FontAwesomeIcon icon={faPencil} />
+            </button>
+            <button onClick={this.handleClick}>
+              <FontAwesomeIcon icon={faTrash} />
+            </button>
+          </div>
         </div>
       );
     }

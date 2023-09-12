@@ -34,11 +34,11 @@ class NewTodoForm extends Component {
             className="Input"
             id="text"
             name="text"
-            placeholder="New Todo"
+            placeholder="New To-do..."
             value={this.state.text}
             onChange={this.handleChange}
           />
-          <button className="Plus">
+          <button className="Plus-button">
             <FontAwesomeIcon className="Plus-Icon" icon={faPlusCircle} />
           </button>
         </form>
