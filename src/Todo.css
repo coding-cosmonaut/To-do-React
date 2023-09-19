@@ -21,6 +21,22 @@
     transform: scale(1.09);
 } */
 
+.Todo-check-container {
+    display: flex;
+    align-items: center;
+}
+
+/*INPUT CHECKBOX */ 
+
+.Todo-checkbox {
+    margin: 0 1rem 0 0;
+    cursor: pointer;
+    border-radius: 2px;
+    border: 1px solid #cfdcec;
+    background-color: #fff;
+    transform: scale(1.5);
+}
+
 .Todo-task.Todo-Completion {
     opacity: 0.6;
 }
@@ -41,6 +57,10 @@
     to {
         width: calc(100% + 1rem);
     }
+}
+
+.Todo-disabled {
+    opacity: 0.5;
 }
 
 .Todo-buttons {

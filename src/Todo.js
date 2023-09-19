@@ -39,6 +39,8 @@ class Todo extends Component {
     this.props.completion(this.props);
   }
   render() {
+    let editDisabled = this.props.completedProp ? true : false;
+    console.log(editDisabled)
     let results;
     if (this.state.isEditing) {
       results = (
@@ -59,20 +61,33 @@ class Todo extends Component {
     } else {
       results = (
         <div className="Todo">
-          <div
-            className={
-              this.props.completedProp
-                ? "Todo-task Todo-Completion"
-                : "Todo-task"
-            }
-            onClick={this.handleCompletion}
-          >
-            <div className="Todo-task-parent">
-              <div className="Todo-task">{this.props.text}</div>
+          <div className="Todo-check-container">
+            <input
+              id="check"
+              className="Todo-checkbox"
+              onClick={this.handleCompletion}
+              type="checkbox"
+            />
+            <label htmlFor="check"></label>
+            <div
+              className={
+                this.props.completedProp
+                  ? "Todo-task Todo-Completion"
+                  : "Todo-task"
+              }
+              onClick={this.handleCompletion}
+            >
+              <div className="Todo-task-parent">
+                <div className="Todo-task">{this.props.text}</div>
+              </div>
             </div>
           </div>
           <div className="Todo-buttons">
-            <button onClick={this.handleEdit}>
+            <button
+              className={editDisabled ? "Todo-disabled" : ""}
+              disabled={editDisabled}
+              onClick={this.handleEdit}
+            >
               <FontAwesomeIcon icon={faPencil} />
             </button>
             <button onClick={this.handleClick}>
